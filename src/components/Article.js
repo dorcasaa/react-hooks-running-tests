@@ -1,11 +1,10 @@
-import React from "react";
+import React from 'react';
+import { render } from '@testing-library/react';
+import Header from './Header';
 
-function Article() {
-  return (
-    <div>
-      {/* please pass this test */}
-    </div>
-  );
-}
-
-export default Article;
+describe('Header Component', () => {
+  it('should render the correct text', () => {
+    const { getByText } = render(<Header />);
+    expect(getByText('hello from the Header!')).toBeInTheDocument();
+  });
+});
